@@ -43,11 +43,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">🔍 Visa Approval Classifier</div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🔍 Visa Approval Classifier  - Make Your Choices on the Left Panel </div>', unsafe_allow_html=True)
 
 
 def main():
-    st.sidebar.title("Machine Learning Web App")
+    st.sidebar.title("Machine Learning Web App - Synthetic Data Used To Train Models")
     st.sidebar.markdown("Are you ready to explore the world of Machine Learning? This web app allows you to understand how your features affect visa approval outcomes. Let's get started!🇺🇸")
 
     with st.expander("📘 Click here to learn what these terms mean"):
