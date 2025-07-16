@@ -68,14 +68,23 @@ def main():
         - **Precision-Recall Curve:** Useful when dealing with imbalanced datasets; shows the trade-off between precision and recall.
         """)
 
-    @st.cache_data(persist=True)
-    def load_data():
-        # data = pd.read_csv("/Users/gee/Library/Mobile Documents/com~apple~CloudDocs/Personal Projects/Book-of-Projects/Web Analytics/Web/Streamlit/Updated_Visa_Dataset.csv")
-        data = pd.read_csv("https://raw.githubusercontent.com/Gee1225/web_app/refs/heads/main/Updated_Visa_Dataset.csv")
-        label = LabelEncoder()
-        for col in data.columns:
-            data[col] = label.fit_transform(data[col])
-        return data
+    # @st.cache_data(persist=True)
+    # def load_data():
+    #     # data = pd.read_csv("/Users/gee/Library/Mobile Documents/com~apple~CloudDocs/Personal Projects/Book-of-Projects/Web Analytics/Web/Streamlit/Updated_Visa_Dataset.csv")
+    #     data = pd.read_csv("https://raw.githubusercontent.com/Gee1225/web_app/refs/heads/main/Updated_Visa_Dataset.csv")
+    #     label = LabelEncoder()
+    #     for col in data.columns:
+    #         data[col] = label.fit_transform(data[col])
+    #     return data
+
+     @st.cache_data(persist=True)
+     def load_data():
+    +    data = pd.read_csv("https://raw.githubusercontent.com/Gee1225/web_app/main/Updated_Visa_Dataset.csv")
+         label = LabelEncoder()
+         for col in data.columns:
+             data[col] = label.fit_transform(data[col])
+         return data
+
 
     @st.cache_data(persist=True)
     def split(df):
