@@ -43,11 +43,11 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-st.markdown('<div class="title">🔍 Visa Approval Classifier  - Make Your Choices on the Left Panel </div>', unsafe_allow_html=True)
+st.markdown('<div class="title">🔍 Visa Approval Classifier</div>', unsafe_allow_html=True)
 
 
 def main():
-    st.sidebar.title("Machine Learning Web App - Synthetic Data Used To Train Models")
+    st.sidebar.title("Machine Learning Web App")
     st.sidebar.markdown("Are you ready to explore the world of Machine Learning? This web app allows you to understand how your features affect visa approval outcomes. Let's get started!🇺🇸")
 
     with st.expander("📘 Click here to learn what these terms mean"):
@@ -70,22 +70,11 @@ def main():
 
     @st.cache_data(persist=True)
     def load_data():
-        # data = pd.read_csv("/Users/gee/Library/Mobile Documents/com~apple~CloudDocs/Personal Projects/Book-of-Projects/Web Analytics/Web/Streamlit/Updated_Visa_Dataset.csv")
-        # data = pd.read_csv("https://raw.githubusercontent.com/Gee1225/web_app/main/Updated_Visa_Dataset.csv")
-        # label = LabelEncoder()
-        # for col in data.columns:
-        #     data[col] = label.fit_transform(data[col])
-        # return data
-
-        url = "https://raw.githubusercontent.com/Gee1225/web_app/main/Updated_Visa_Dataset.csv"
-        try:
-            data = pd.read_csv(url)
-        except Exception as e:
-            st.error(f"Failed to load {url}:\n{e}")
-            st.stop()
-        # …rest of your label‑encoding…
+        data = pd.read_csv("/Users/gee/Library/Mobile Documents/com~apple~CloudDocs/Personal Projects/Book-of-Projects/Web Analytics/Web/Visa_classifier/Updated_Visa_Dataset.csv")
+        label = LabelEncoder()
+        for col in data.columns:
+            data[col] = label.fit_transform(data[col])
         return data
-
 
     @st.cache_data(persist=True)
     def split(df):
